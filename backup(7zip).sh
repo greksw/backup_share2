@@ -43,10 +43,10 @@ if [ $HOST1_STATUS -eq 0 ] && [ $HOST2_STATUS -eq 0 ]; then
     log_and_notify "✅ Оба хоста доступны, монтируем шары..."
 
     # Монтируем шары
-    sudo mount -t cifs //192.168.2.13/d$/test $MOUNT_POINT1 -o username=user1,password=123,domain=test.loc,iocharset=utf8,file_mode=0777,dir_mode=0777
+    sudo mount -t cifs //192.168.2.13/d$/test $MOUNT_POINT1 -o username=user1,password=123,domain=test.loc,iocharset=utf8,file_mode=0777,dir_mode=0777,vers=3.1.1
     MOUNT1_STATUS=$?
 
-    sudo mount -t cifs //192.168.2.200/srv-win/srv-ts5 $MOUNT_POINT2 -o username=user2,password=123,domain=workgroup,iocharset=utf8,file_mode=0777,dir_mode=0777
+    sudo mount -t cifs //192.168.2.200/srv-win/srv-ts5 $MOUNT_POINT2 -o username=user2,password=123,domain=workgroup,iocharset=utf8,file_mode=0777,dir_mode=0777,vers=3.1.1
     MOUNT2_STATUS=$?
 
     # Если монтирование прошло успешно
